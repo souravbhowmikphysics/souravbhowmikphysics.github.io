@@ -1,0 +1,282 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sourav Bhowmik | Atmospheric Physics Researcher</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#0b1020;
+            color:white;
+            line-height:1.7;
+        }
+
+        header{
+            height:100vh;
+            background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+            url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=1470&auto=format&fit=crop');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:20px;
+        }
+
+        .hero h1{
+            font-size:60px;
+            margin-bottom:20px;
+        }
+
+        .hero p{
+            font-size:24px;
+            color:#d1d5db;
+        }
+
+        nav{
+            background:#111827;
+            padding:15px;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        nav ul{
+            display:flex;
+            justify-content:center;
+            list-style:none;
+            flex-wrap:wrap;
+        }
+
+        nav ul li{
+            margin:10px 20px;
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        section{
+            padding:70px 10%;
+        }
+
+        h2{
+            font-size:36px;
+            margin-bottom:25px;
+            color:#38bdf8;
+        }
+
+        .card{
+            background:#111827;
+            padding:25px;
+            margin-bottom:25px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .skills{
+            display:flex;
+            flex-wrap:wrap;
+            gap:15px;
+        }
+
+        .skill{
+            background:#1e293b;
+            padding:12px 20px;
+            border-radius:30px;
+        }
+
+        footer{
+            background:#111827;
+            text-align:center;
+            padding:30px;
+            margin-top:50px;
+        }
+
+        a{
+            color:#38bdf8;
+        }
+
+        @media(max-width:768px){
+
+            .hero h1{
+                font-size:38px;
+            }
+
+            .hero p{
+                font-size:18px;
+            }
+
+            section{
+                padding:50px 7%;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="hero">
+        <h1>Sourav Bhowmik</h1>
+        <p>Atmospheric Physics Researcher | Tropical Cyclone Researcher</p>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#conference">Conference</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+
+    <div class="card">
+        <p>
+            I am an Atmospheric Physics researcher with a strong interest in
+            Tropical Cyclogenesis, Climate Change, Environmental Threshold Analysis,
+            and Bay of Bengal cyclone dynamics.
+            My research focuses on understanding environmental parameters and
+            their impacts on cyclone formation and intensity.
+        </p>
+    </div>
+</section>
+
+<section id="education">
+
+    <h2>Education</h2>
+
+    <div class="card">
+        <h3>M.Sc in Physics</h3>
+        <p>Bangladesh University of Engineering and Technology (BUET)</p>
+        <p>2025 | CGPA: 3.33/4.00</p>
+    </div>
+
+    <div class="card">
+        <h3>M.Sc in Physics</h3>
+        <p>University of Dhaka</p>
+        <p>2019 | CGPA: 3.23/4.00</p>
+    </div>
+
+    <div class="card">
+        <h3>B.Sc (Honours) in Physics</h3>
+        <p>University of Dhaka</p>
+        <p>2018 | CGPA: 3.24/4.00</p>
+    </div>
+
+</section>
+
+<section id="research">
+
+    <h2>Research Interests</h2>
+
+    <div class="card">
+        <ul>
+            <li>Bay of Bengal Tropical Cyclogenesis</li>
+            <li>Climate Change Impact on Cyclones</li>
+            <li>Environmental Threshold Analysis</li>
+            <li>ERA5 Climate Data Analysis</li>
+            <li>Machine Learning for Flood Prediction</li>
+            <li>Atmospheric Data Visualization</li>
+        </ul>
+    </div>
+
+</section>
+
+<section id="skills">
+
+    <h2>Technical Skills</h2>
+
+    <div class="skills">
+        <div class="skill">Python</div>
+        <div class="skill">GrADS</div>
+        <div class="skill">CDO</div>
+        <div class="skill">MATLAB</div>
+        <div class="skill">QGIS</div>
+        <div class="skill">Linux</div>
+        <div class="skill">Machine Learning</div>
+        <div class="skill">LaTeX</div>
+        <div class="skill">Climate Data Analysis</div>
+    </div>
+
+</section>
+
+<section id="conference">
+
+    <h2>Conference & Workshop</h2>
+
+    <div class="card">
+        <h3>IWTRC Japan 2024</h3>
+        <p>
+            Poster Presentation on Tropical Cyclogenesis over the Bay of Bengal.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>ICMCS 2023</h3>
+        <p>
+            Oral Presentation on Environmental Parameter Threshold Analysis.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>NCAR MPAS/WRF Workshop 2025</h3>
+        <p>
+            Virtual Participation in Numerical Weather Modeling Workshop.
+        </p>
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <h2>Contact</h2>
+
+    <div class="card">
+
+        <p>Email:
+        <a href="mailto:sourav.bhowmik.ovi@gmail.com">
+        sourav.bhowmik.ovi@gmail.com
+        </a>
+        </p>
+
+        <br>
+
+        <p>GitHub:
+        <a href="https://github.com/souravbhowmikphysics" target="_blank">
+        github.com/souravbhowmikphysics
+        </a>
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Sourav Bhowmik | Atmospheric Physics Research Portfolio</p>
+</footer>
+
+</body>
+</html>
+```
