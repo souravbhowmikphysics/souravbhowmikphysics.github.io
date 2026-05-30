@@ -1,396 +1,1160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sourav Bhowmik | Atmospheric Physics Researcher</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sourav Bhowmik — Atmospheric Physicist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep: #0d2040;
+    --teal: #0e7c7b;
+    --teal-light: #1ab5b3;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --muted: #8a9ab5;
+    --white: #ffffff;
+    --card-bg: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+  }
 
-    <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+  html { scroll-behavior: smooth; }
 
-        body{
-            background:#0b1020;
-            color:white;
-            line-height:1.7;
-        }
+  body {
+    background: var(--navy);
+    color: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
 
-        header{
-            height:100vh;
-            background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-            url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=1470&auto=format&fit=crop');
-            background-size:cover;
-            background-position:center;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            padding:20px;
-        }
-        
+  /* ── Background ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(14,124,123,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 90% 80%, rgba(201,168,76,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 100% at 50% 50%, rgba(13,32,64,0.8) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-        .hero h1{
-            font-size:60px;
-            margin-bottom:20px;
-        }
+  /* ── Nav ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
 
-        .hero p{
-            font-size:24px;
-            color:#d1d5db;
-        }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
 
-        nav{
-            background:#111827;
-            padding:15px;
-            position:sticky;
-            top:0;
-            z-index:1000;
-        }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
 
-        nav ul{
-            display:flex;
-            justify-content:center;
-            list-style:none;
-            flex-wrap:wrap;
-        }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
 
-        nav ul li{
-            margin:10px 20px;
-        }
+  .nav-links a:hover { color: var(--teal-light); }
 
-        nav ul li a{
-            color:white;
-            text-decoration:none;
-            font-weight:bold;
-        }
+  /* ── Hero ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 8rem 3rem 4rem;
+  }
 
-        section{
-            padding:70px 10%;
-        }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
 
-        h2{
-            font-size:36px;
-            margin-bottom:25px;
-            color:#38bdf8;
-        }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
 
-        .card{
-            background:#111827;
-            padding:25px;
-            margin-bottom:25px;
-            border-radius:15px;
-            box-shadow:0 0 15px rgba(0,0,0,0.3);
-        }
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--teal-light);
+  }
 
-        .social-links{
-    margin-top:25px;
-}
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
 
-.social-links a{
-    display:inline-block;
-    margin:5px;
-    padding:10px 18px;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    border-radius:6px;
-    transition:0.3s;
-}
+  h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
 
-.social-links a:hover{
-    background:#1d4ed8;
-    transform:translateY(-2px);
-}
+  .hero-subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-top: 1.2rem;
+    line-height: 1.8;
+    max-width: 520px;
+  }
 
-        .skills{
-            display:flex;
-            flex-wrap:wrap;
-            gap:15px;
-        }
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.8rem;
+  }
 
-        .skill{
-            background:#1e293b;
-            padding:12px 20px;
-            border-radius:30px;
-        }
+  .chip {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    background: var(--card-bg);
+    text-transform: uppercase;
+  }
 
-        footer{
-            background:#111827;
-            text-align:center;
-            padding:30px;
-            margin-top:50px;
-        }
+  .chip.highlight {
+    border-color: rgba(14,124,123,0.4);
+    color: var(--teal-light);
+    background: rgba(14,124,123,0.08);
+  }
 
-        a{
-            color:#38bdf8;
-        }
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.4rem;
+  }
 
-        @media(max-width:768px){
+  .btn {
+    padding: 0.7rem 1.8rem;
+    border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+  }
 
-            .hero h1{
-                font-size:38px;
-            }
+  .btn-primary {
+    background: var(--teal);
+    color: var(--white);
+  }
 
-            .hero p{
-                font-size:18px;
-            }
+  .btn-primary:hover {
+    background: var(--teal-light);
+    transform: translateY(-2px);
+  }
 
-            section{
-                padding:50px 7%;
-            }
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid var(--border);
+  }
 
-        }
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
 
-    </style>
+  /* Hero avatar area */
+  .hero-avatar {
+    position: relative;
+  }
+
+  .avatar-ring {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .avatar-ring::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 1px dashed rgba(14,124,123,0.4);
+    animation: spin 20s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .avatar-initials {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--deep) 0%, rgba(14,124,123,0.3) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ── Sections ── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 200px;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 3rem;
+  }
+
+  h2 em { font-style: italic; color: var(--gold-light); }
+
+  /* ── Education Timeline ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 110px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    align-items: start;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  .tl-item:nth-child(1) { animation-delay: 0.1s; }
+  .tl-item:nth-child(2) { animation-delay: 0.2s; }
+  .tl-item:nth-child(3) { animation-delay: 0.3s; }
+  .tl-item:nth-child(4) { animation-delay: 0.4s; }
+  .tl-item:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .tl-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    text-align: right;
+    padding-right: 2rem;
+    padding-top: 0.2rem;
+    position: relative;
+  }
+
+  .tl-year::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 0.5rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 2px solid var(--navy);
+    box-shadow: 0 0 0 1px var(--teal);
+  }
+
+  .tl-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .tl-content:hover {
+    border-color: rgba(14,124,123,0.4);
+    transform: translateX(4px);
+  }
+
+  .tl-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .tl-institution {
+    font-size: 0.85rem;
+    color: var(--teal-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .tl-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .tl-gpa {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .tl-dept {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Research ── */
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .research-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.8rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .research-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .research-card:hover { border-color: rgba(14,124,123,0.3); transform: translateY(-4px); }
+  .research-card:hover::before { transform: scaleX(1); }
+
+  .rc-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .rc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .rc-body {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── Conferences ── */
+  .conf-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .conf-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.2rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: border-color 0.3s;
+  }
+
+  .conf-item:hover { border-color: rgba(201,168,76,0.3); }
+
+  .conf-badge {
+    padding: 0.25rem 0.7rem;
+    border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .conf-badge.oral { background: rgba(14,124,123,0.2); color: var(--teal-light); border: 1px solid rgba(14,124,123,0.3); }
+  .conf-badge.poster { background: rgba(201,168,76,0.15); color: var(--gold-light); border: 1px solid rgba(201,168,76,0.3); }
+  .conf-badge.participant { background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid var(--border); }
+
+  .conf-title {
+    font-size: 0.9rem;
+    color: var(--cream);
+    line-height: 1.5;
+    margin-bottom: 0.3rem;
+  }
+
+  .conf-venue {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Skills ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+
+  .sg-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 1rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    padding: 0.3rem 0.75rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.78rem;
+    color: var(--cream);
+  }
+
+  /* ── Volunteering ── */
+  .vol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .vol-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.3rem 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .vol-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+
+  .vol-org {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .vol-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── Certifications ── */
+  .cert-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .cert-item:hover { border-color: rgba(14,124,123,0.4); transform: translateY(-3px); }
+
+  .cert-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: rgba(14,124,123,0.15);
+    border: 1px solid rgba(14,124,123,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .cert-name {
+    font-size: 0.88rem;
+    color: var(--cream);
+    line-height: 1.4;
+    margin-bottom: 0.2rem;
+  }
+
+  .cert-issuer {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--teal-light);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Contact ── */
+  #contact {
+    text-align: center;
+    padding: 5rem 3rem 8rem;
+  }
+
+  .contact-card {
+    max-width: 580px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 3rem;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    transition: all 0.3s;
+  }
+
+  .contact-link:hover { border-color: var(--teal-light); color: var(--teal-light); }
+
+  /* ── Award banner ── */
+  .award-banner {
+    background: linear-gradient(135deg, rgba(201,168,76,0.1) 0%, rgba(14,124,123,0.1) 100%);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .award-icon { font-size: 2.2rem; }
+
+  .award-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--gold-light);
+    margin-bottom: 0.3rem;
+  }
+
+  .award-text p {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 0 auto;
+    max-width: 1100px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { padding: 7rem 1.5rem 3rem; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-avatar { display: none; }
+    section { padding: 3.5rem 1.5rem; }
+    .timeline::before { left: 80px; }
+    .tl-item { grid-template-columns: 80px 1fr; gap: 1.2rem; }
+    #contact { padding: 3.5rem 1.5rem 5rem; }
+  }
+</style>
 </head>
-
 <body>
 
-<header>
-    <div class="hero">
-        <h1>Sourav Bhowmik</h1>
-        <p>Atmospheric Physics Researcher | Tropical Cyclone Researcher</p>
-        <div class="social-links">
-            <a href="https://linkedin.com/in/sourav-bhowmik-5855131b5/" target="_blank">LinkedIn</a>
-            
-            <a href="mailto:sourav.bhowmik.physics@gmail.com">Email</a>
-
-</div>
-
-    </div>
-</header>
-
+<!-- NAV -->
 <nav>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#grants">Grants</a></li>
-        <li><a href="#conference">Conference</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+  <a class="nav-logo" href="#hero">Sourav Bhowmik</a>
+  <ul class="nav-links">
+    <li><a href="#education">Education</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#conferences">Conferences</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#volunteer">Activities</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<section id="about">
-    <h2>About Me</h2>
-
-    <div class="card">
-        <p>
-            I am an Atmospheric Physics researcher with a strong interest in
-            Tropical Cyclogenesis, Climate Change, Environmental Threshold Analysis,
-            and Bay of Bengal cyclone dynamics.
-            My research focuses on understanding environmental parameters and
-            their impacts on cyclone formation and intensity.
-        </p>
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Atmospheric Physicist &amp; Researcher</div>
+      <h1>Sourav<br><em>Bhowmik</em></h1>
+      <p class="hero-subtitle">
+        M.Sc in Physics (Atmospheric Physics), BUET. Specializing in tropical cyclone
+        climatology over the Bay of Bengal — using ERA5 reanalysis, GrADS, and
+        advanced climate data analysis to understand cyclogenesis dynamics.
+      </p>
+      <div class="hero-chips">
+        <span class="chip highlight">Bay of Bengal Cyclones</span>
+        <span class="chip highlight">ERA5 Reanalysis</span>
+        <span class="chip">GrADS · Python</span>
+        <span class="chip">Atmospheric Physics</span>
+        <span class="chip">Climate Science</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#research">View Research</a>
+        <a class="btn btn-outline" href="mailto:sourav.bhowmik.ovi@gmail.com">Get in Touch</a>
+      </div>
     </div>
-</section>
+    <div class="hero-avatar">
+      <div class="avatar-ring">
+        <div class="avatar-initials">SB</div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Conf. Papers</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Yrs Research</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">🇯🇵</span>
+          <span class="stat-label">Japan 2024</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="divider"></div>
+
+<!-- EDUCATION -->
 <section id="education">
-
-    <h2>Education</h2>
-
-    <div class="card">
-        <h3>M.Sc in Physics</h3>
-        <p>Bangladesh University of Engineering and Technology (BUET)</p>
-        <p>2025 | CGPA: 3.33/4.00</p>
+  <div class="section-label">Academic Background</div>
+  <h2>Education &amp; <em>Qualifications</em></h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">2025</div>
+      <div class="tl-content">
+        <div class="tl-degree">Master of Science (M.Sc)</div>
+        <div class="tl-institution">Bangladesh University of Engineering and Technology (BUET)</div>
+        <div class="tl-meta">
+          <span class="tl-dept">Physics · Atmospheric Physics</span>
+          <span class="tl-gpa">CGPA 3.33 / 4.00</span>
+        </div>
+      </div>
     </div>
-
-    <div class="card">
-        <h3>M.Sc in Physics</h3>
-        <p>University of Dhaka</p>
-        <p>2019 | CGPA: 3.23/4.00</p>
+    <div class="tl-item">
+      <div class="tl-year">2019</div>
+      <div class="tl-content">
+        <div class="tl-degree">Master of Science (M.Sc)</div>
+        <div class="tl-institution">University of Dhaka</div>
+        <div class="tl-meta">
+          <span class="tl-dept">Physics</span>
+          <span class="tl-gpa">CGPA 3.23 / 4.00</span>
+        </div>
+      </div>
     </div>
-
-    <div class="card">
-        <h3>B.Sc (Honours) in Physics</h3>
-        <p>University of Dhaka</p>
-        <p>2018 | CGPA: 3.24/4.00</p>
+    <div class="tl-item">
+      <div class="tl-year">2018</div>
+      <div class="tl-content">
+        <div class="tl-degree">Bachelor of Science — Honors (B.Sc)</div>
+        <div class="tl-institution">University of Dhaka</div>
+        <div class="tl-meta">
+          <span class="tl-dept">Physics</span>
+          <span class="tl-gpa">CGPA 3.24 / 4.00</span>
+        </div>
+      </div>
     </div>
-
+    <div class="tl-item">
+      <div class="tl-year">2013</div>
+      <div class="tl-content">
+        <div class="tl-degree">Higher Secondary Certificate (H.S.C)</div>
+        <div class="tl-institution">Dhaka Board</div>
+        <div class="tl-meta">
+          <span class="tl-dept">Science</span>
+          <span class="tl-gpa">GPA 4.30 / 5.00</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2011</div>
+      <div class="tl-content">
+        <div class="tl-degree">Secondary School Certificate (S.S.C)</div>
+        <div class="tl-institution">Dhaka Board</div>
+        <div class="tl-meta">
+          <span class="tl-dept">Science</span>
+          <span class="tl-gpa">GPA 4.88 / 5.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-    
-<h2>Research Projects</h2>
 
-<div class="card">
-    <h3>Environmental Threshold for Tropical Cyclogenesis over the Bay of Bengal (1990–2019)</h3>
-    <p>
-        Investigated environmental thresholds associated with tropical cyclone genesis
-        over the Bay of Bengal using long-term climatological datasets and atmospheric
-        diagnostics.
-    </p>
-</div>
+<div class="divider"></div>
 
-<div class="card">
-    <h3>Climatology of Environmental Criteria for Bimodal Tropical Cyclogenesis</h3>
-    <p>
-        Examined the seasonal variability and environmental conditions responsible for
-        bimodal tropical cyclone formation over the Bay of Bengal.
-    </p>
-</div>
-
-<div class="card">
-    <h3>ERA5 Reanalysis-Based Cyclone Environment Analysis</h3>
-    <p>
-        Utilized ERA5 reanalysis datasets to analyze SST, Relative Humidity, Vertical
-        Wind Shear, and thermodynamic conditions associated with cyclone development.
-    </p>
-</div>
-
-<div class="card">
-    <h3>Machine Learning Applications in Flood Susceptibility Mapping</h3>
-    <p>
-        Exploring machine learning approaches for flood susceptibility assessment and
-        disaster risk reduction using geospatial and climate datasets.
-    </p>
-</div>
-
-
+<!-- RESEARCH -->
 <section id="research">
+  <div class="section-label">Academic Work</div>
+  <h2>Research &amp; <em>Interests</em></h2>
 
-    <h2>Research Interests</h2>
-
-    <div class="card">
-        <ul>
-            <li>Bay of Bengal Tropical Cyclogenesis</li>
-            <li>Climate Change Impact on Cyclones</li>
-            <li>Environmental Threshold Analysis</li>
-            <li>ERA5 Climate Data Analysis</li>
-            <li>Machine Learning for Flood Prediction</li>
-            <li>Atmospheric Data Visualization</li>
-        </ul>
+  <!-- Award Banner -->
+  <div class="award-banner">
+    <div class="award-icon">🏆</div>
+    <div class="award-text">
+      <h3>International Research Travel Grant — Japan 2024</h3>
+      <p>Fully funded travel grant to present at the International Workshop for Typhoon and Research Centre (IWTRC), Yokohama National University, Japan (Nov 26–29, 2024). Collaborated with global experts in cyclone dynamics and climate science.</p>
     </div>
+  </div>
 
+  <div class="research-grid">
+    <div class="research-card">
+      <div class="rc-icon">🌀</div>
+      <div class="rc-title">Tropical Cyclone Climatology, Bay of Bengal</div>
+      <div class="rc-body">Investigating environmental threshold conditions for cyclogenesis over the BoB during 1990–2020 using ERA5 reanalysis data. Focus on thermodynamic and dynamic parameter variability across bimodal cyclone seasons.</div>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">📊</div>
+      <div class="rc-title">Climate Data Analysis &amp; Visualization</div>
+      <div class="rc-body">Advanced GrADS scripting on Ubuntu Linux for overlay plots of SST, Relative Humidity, Vorticity, Wind Shear, and Moisture Flux. ERA5 data at 0.25°×0.25° resolution across domain 70°E–100°E, 5°N–25°N.</div>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">🔬</div>
+      <div class="rc-title">Environmental Threshold Analysis</div>
+      <div class="rc-body">Quantifying critical thresholds of Sea Surface Temperature, 850 hPa convergence/divergence, and vertical wind shear (850–200 hPa) that govern tropical cyclogenesis events over the Bay of Bengal.</div>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">🎓</div>
+      <div class="rc-title">Teaching Assistant — BUET (2022–2023)</div>
+      <div class="rc-body">Instructed undergraduate Physics laboratory classes, assisted in course material preparation, and supervised laboratory reports and assessments at Bangladesh University of Engineering and Technology.</div>
+    </div>
+  </div>
 </section>
 
+<div class="divider"></div>
+
+<!-- CONFERENCES -->
+<section id="conferences">
+  <div class="section-label">Academic Presentations</div>
+  <h2>Conferences &amp; <em>Workshops</em></h2>
+  <div class="conf-list">
+    <div class="conf-item">
+      <span class="conf-badge poster">Poster</span>
+      <div>
+        <div class="conf-title">Climatology of Environmental Criteria for Bimodal Tropical Cyclogenesis over the Bay of Bengal</div>
+        <div class="conf-venue">2nd International Workshop of the Typhoon Science and Technology Research Center (IWTRC) — Yokohama National University, Japan, Nov 27–28, 2024</div>
+      </div>
+    </div>
+    <div class="conf-item">
+      <span class="conf-badge oral">Oral</span>
+      <div>
+        <div class="conf-title">A Comprehensive Analysis of Environment Parameters Threshold Value for Tropical Cyclogenesis over the Bay of Bengal (1990–2019)</div>
+        <div class="conf-venue">International Conference on Meteorology and Climate Science (ICMCS) — University of Dhaka, Dec 9–10, 2023</div>
+      </div>
+    </div>
+    <div class="conf-item">
+      <span class="conf-badge poster">Poster</span>
+      <div>
+        <div class="conf-title">Environmental Threshold for Tropical Cyclogenesis over the Bay of Bengal during 1990–2019</div>
+        <div class="conf-venue">1st National Conference on Advances in Science and Technology (NCAST-2023) — BUET, Dec 7–8, 2023</div>
+      </div>
+    </div>
+    <div class="conf-item">
+      <span class="conf-badge participant">Participant</span>
+      <div>
+        <div class="conf-title">1st International Conference on Frontier in Sciences (ICFS-2022)</div>
+        <div class="conf-venue">Faculty of Science, BUET, Dhaka — Nov 11–12, 2022</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:3rem; font-size:1.6rem;">Training &amp; <em>Workshops</em></h2>
+  <div class="conf-list">
+    <div class="conf-item">
+      <span class="conf-badge oral">2025</span>
+      <div>
+        <div class="conf-title">Joint MPAS/WRF Users Workshop 2025 — NSF NCAR (Virtual)</div>
+        <div class="conf-venue">June 3–6, 2025</div>
+      </div>
+    </div>
+    <div class="conf-item">
+      <span class="conf-badge oral">2025</span>
+      <div>
+        <div class="conf-title">Democratising Education for Global Sustainability and Justice (DemEd Global) — Lucy Cavendish College &amp; Hughes Hall, University of Cambridge</div>
+        <div class="conf-venue">Full Bursary via Government of Bangladesh · Online Programme, June–July 2025</div>
+      </div>
+    </div>
+    <div class="conf-item">
+      <span class="conf-badge participant">2023</span>
+      <div>
+        <div class="conf-title">Research on Tropical Cyclone Precipitation, Drought and Climate Extremes in South Asia</div>
+        <div class="conf-venue">Research Society · Online, Dec 3–6, 2023</div>
+      </div>
+    </div>
+    <div class="conf-item">
+      <span class="conf-badge participant">2023</span>
+      <div>
+        <div class="conf-title">1st Training Course on Numerical Model &amp; AI for Ocean Science (NMAI4OS) — NOAMI</div>
+        <div class="conf-venue">July 23–26, 2023</div>
+      </div>
+    </div>
+    <div class="conf-item">
+      <span class="conf-badge participant">2023</span>
+      <div>
+        <div class="conf-title">Integrated Short Course: Numerical Modeling, AI and Geospatial Technology — NOAMI</div>
+        <div class="conf-venue">April 14–16, 2023</div>
+      </div>
+    </div>
+    <div class="conf-item">
+      <span class="conf-badge participant">2021</span>
+      <div>
+        <div class="conf-title">Fundamentals of Writing Research Articles for Top Journals — BUET Workshop</div>
+        <div class="conf-venue">August 10, 2021</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
 <section id="skills">
-
-    <h2>Technical Skills</h2>
-
-    <div class="skills">
-        <div class="skill">Python</div>
-        <div class="skill">GrADS</div>
-        <div class="skill">CDO</div>
-        <div class="skill">MATLAB</div>
-        <div class="skill">QGIS</div>
-        <div class="skill">Linux</div>
-        <div class="skill">Machine Learning</div>
-        <div class="skill">LaTeX</div>
-        <div class="skill">Climate Data Analysis</div>
+  <div class="section-label">Technical Expertise</div>
+  <h2>Skills &amp; <em>Tools</em></h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="sg-title">Climate &amp; Data Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">GrADS</span>
+        <span class="skill-tag">ERA5 Reanalysis</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">Origin Lab</span>
+        <span class="skill-tag">Mendeley</span>
+      </div>
     </div>
-
-</section>
-    
-<section id="grants">
-
-    <h2>Grants & Fellowships</h2>
-
-    <div class="card">
-        <h3>International Research Travel Grant</h3>
-
-        <p>
-            Awarded a fully funded international travel grant to participate in the
-            International Workshop for Typhoon and Research Centre (IWTRC),
-            Yokohama National University, Japan (November 2024).
-        </p>
-
-        <p>
-            Presented research on tropical cyclogenesis over the Bay of Bengal and
-            collaborated with international researchers working on tropical cyclone science.
-        </p>
+    <div class="skill-group">
+      <div class="sg-title">Operating Systems</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Ubuntu Linux</span>
+        <span class="skill-tag">CentOS 7</span>
+        <span class="skill-tag">Windows 10</span>
+      </div>
     </div>
-
-
-<section id="conference">
-
-    <h2>Conference Presentations</h2>
-
-    <div class="card">
-        <h3>IWTRC 2024 – Yokohama National University, Japan</h3>
-        <p><strong>Poster Presentation</strong></p>
-        <p>
-            Presented research on environmental thresholds for tropical cyclogenesis
-            over the Bay of Bengal.
-        </p>
+    <div class="skill-group">
+      <div class="sg-title">Research &amp; Writing</div>
+      <div class="skill-tags">
+        <span class="skill-tag">LaTeX</span>
+        <span class="skill-tag">MS Office Suite</span>
+        <span class="skill-tag">Time Series Analysis</span>
+        <span class="skill-tag">Scientific Visualization</span>
+      </div>
     </div>
-
-    <div class="card">
-        <h3>ICMCS 2023 – University of Dhaka</h3>
-        <p><strong>Oral Presentation</strong></p>
-        <p>
-            Presented a comprehensive analysis of environmental parameter threshold
-            values for tropical cyclogenesis over the Bay of Bengal.
-        </p>
+    <div class="skill-group">
+      <div class="sg-title">Soft Skills</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Classroom Management</span>
+        <span class="skill-tag">Student Assessment</span>
+        <span class="skill-tag">Team Collaboration</span>
+        <span class="skill-tag">Public Speaking</span>
+      </div>
     </div>
-
-    <div class="card">
-        <h3>NCAST 2023 – BUET</h3>
-        <p><strong>Poster Presentation</strong></p>
-        <p>
-            Presented research findings related to tropical cyclone genesis and
-            environmental controls.
-        </p>
-    </div>
-
+  </div>
 </section>
 
-    <h2>Conference & Workshop</h2>
+<div class="divider"></div>
 
-    <div class="card">
-        <h3>IWTRC Japan 2024</h3>
-        <p>
-            Poster Presentation on Tropical Cyclogenesis over the Bay of Bengal.
-        </p>
+<!-- VOLUNTEER / CO-CURRICULAR -->
+<section id="volunteer">
+  <div class="section-label">Co-Curricular &amp; Outreach</div>
+  <h2>Volunteering &amp; <em>Memberships</em></h2>
+  <div class="vol-grid">
+    <div class="vol-card">
+      <div class="vol-org">International Astronomy &amp; Astrophysics Competition</div>
+      <div class="vol-role">🌍 Ambassador</div>
     </div>
-
-    <div class="card">
-        <h3>ICMCS 2023</h3>
-        <p>
-            Oral Presentation on Environmental Parameter Threshold Analysis.
-        </p>
+    <div class="vol-card">
+      <div class="vol-org">International Youth Math Challenge (IYMC)</div>
+      <div class="vol-role">🔢 Ambassador</div>
     </div>
-
-    <div class="card">
-        <h3>NCAR MPAS/WRF Workshop 2025</h3>
-        <p>
-            Virtual Participation in Numerical Weather Modeling Workshop.
-        </p>
+    <div class="vol-card">
+      <div class="vol-org">South Asian Meteorological Association (SAMA)</div>
+      <div class="vol-role">🌦 Member</div>
     </div>
+    <div class="vol-card">
+      <div class="vol-org">National Oceanography and Marine Institute (NOAMI)</div>
+      <div class="vol-role">🌊 Research Member</div>
+    </div>
+    <div class="vol-card">
+      <div class="vol-org">Ocean Expert Network</div>
+      <div class="vol-role">🐠 Member · oceanexpert.org</div>
+    </div>
+    <div class="vol-card">
+      <div class="vol-org">Research Society</div>
+      <div class="vol-role">📖 Member</div>
+    </div>
+    <div class="vol-card">
+      <div class="vol-org">Bangladesh Scouts</div>
+      <div class="vol-role">⚜ Member</div>
+    </div>
+    <div class="vol-card">
+      <div class="vol-org">Cultural Activities</div>
+      <div class="vol-role">🎵 Singing · Dancing · Poetry Recitation</div>
+    </div>
+  </div>
 
+  <!-- Certifications -->
+  <h2 style="margin-top:3rem; font-size:1.6rem;">Professional <em>Certifications</em></h2>
+  <div class="cert-list">
+    <a class="cert-item" href="https://www.coursera.org/account/accomplishments/specialization/certificate/EATGUDBGNVZN" target="_blank">
+      <div class="cert-icon">🎓</div>
+      <div>
+        <div class="cert-name">Arizona State University TESOL Specialization</div>
+        <div class="cert-issuer">Coursera · Arizona State University</div>
+      </div>
+    </a>
+    <a class="cert-item" href="https://www.coursera.org/account/accomplishments/specialization/VSN7LKQP6ZRG" target="_blank">
+      <div class="cert-icon">🗣</div>
+      <div>
+        <div class="cert-name">Improve Your English Communication Skills</div>
+        <div class="cert-issuer">Coursera · Georgia Institute of Technology</div>
+      </div>
+    </a>
+    <a class="cert-item" href="https://www.coursera.org/account/accomplishments/specialization/SM3FGCJ3ATAS" target="_blank">
+      <div class="cert-icon">⚛</div>
+      <div>
+        <div class="cert-name">How Things Work: An Introduction to Physics</div>
+        <div class="cert-issuer">Coursera · University of Virginia</div>
+      </div>
+    </a>
+    <a class="cert-item" href="https://www.coursera.org/account/accomplishments/specialization/certificate/XL2WL62KXB7H" target="_blank">
+      <div class="cert-icon">🎤</div>
+      <div>
+        <div class="cert-name">Dynamic Public Speaking Specialization</div>
+        <div class="cert-issuer">Coursera · University of Washington</div>
+      </div>
+    </a>
+  </div>
 </section>
 
+<div class="divider"></div>
+
+<!-- CONTACT -->
 <section id="contact">
-
-    <h2>Contact</h2>
-
-    <div class="card">
-
-        <p>Email:
-        <a href="mailto:sourav.bhowmik.ovi@gmail.com">
-        sourav.bhowmik.ovi@gmail.com
-        </a>
-        </p>
-
-        <br>
-
-        <p>GitHub:
-        <a href="https://github.com/souravbhowmikphysics" target="_blank">
-        github.com/souravbhowmikphysics
-        </a>
-        </p>
-
+  <div class="section-label">Get in Touch</div>
+  <h2 style="text-align:center;">Contact <em>Me</em></h2>
+  <div class="contact-card">
+    <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; margin-bottom:0.5rem;">
+      Open to research collaborations, academic discussions, and opportunities in atmospheric science and climate research.
+    </p>
+    <div style="font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--teal-light); letter-spacing:0.05em; margin:1rem 0;">
+      📍 Shyampur, Kadamtali, Dhaka-1204, Bangladesh
     </div>
-
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:sourav.bhowmik.ovi@gmail.com">
+        ✉ sourav.bhowmik.ovi@gmail.com
+      </a>
+      <a class="contact-link" href="tel:+8801743519336">
+        📞 +880 1743 519336
+      </a>
+      <a class="contact-link" href="https://oceanexpert.org/expert/SouravBhowmik" target="_blank">
+        🌊 Ocean Expert Profile
+      </a>
+      <a class="contact-link" href="https://iaac.space/en/soubhowmik" target="_blank">
+        🌍 IAAC Ambassador
+      </a>
+    </div>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 Sourav Bhowmik | Atmospheric Physics Research Portfolio</p>
+  <p>© 2025 Sourav Bhowmik · Atmospheric Physicist · BUET, Dhaka</p>
 </footer>
 
 </body>
